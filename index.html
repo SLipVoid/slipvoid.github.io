@@ -14,7 +14,7 @@ body {background-color: lightgreen;}
 		gapi.load('client', function() {
 			gapi.client.init({
 				apiKey: 'AIzaSyDfGVSV7jhVFrk6nBK-B7-UJ0IDUDSrRb4',
-				clientId: '491451147031-d9rq1rvb54gsk0hsoru56ke3umispvai.apps.googleusercontent.com',
+				clientId: '491451147031-e6q80ribg4rssrsrukr27jkqu2n0i2a6.apps.googleusercontent.com',
 				scope: 'https://www.googleapis.com/auth/spreadsheets.readonly',
 				discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
 			}).then(function() {
@@ -23,6 +23,8 @@ body {background-color: lightgreen;}
 				console.error('Error loading API client for Sheets API', error);
 			});
 		});
+        
+        gapi.load('client', start);
 
 		// Call the Sheets API to retrieve data.
 		function getData() {
@@ -38,27 +40,6 @@ body {background-color: lightgreen;}
 				console.error('Error retrieving data from Sheets API', error);
 			});
 		}
-        function getData() {
-    var spreadsheetId = '1dCGUdg3VZcgzoOIPrlBFW5LcbmJoVcMMTaYti6_5aik';
-    var range = 'Calculator!B2:E2';
-
-    gapi.client.sheets.spreadsheets.values.get({
-        spreadsheetId: spreadsheetId,
-        range: range,
-    }).then(function(response) {
-        var values = response.result.values;
-        if (values.length > 0) {
-            var table = document.createElement("table");
-            var headerRow = document.createElement("tr");
-            var headers = ["Column 1", "Column 2", "Column 3", "Column 4"];
-            for (var i = 0; i < headers.length; i++) {
-                var headerCell = document.createElement("th");
-                headerCell.innerText = headers[i];
-                headerRow.appendChild(headerCell);
-            }
-            table.appendChild(headerRow);
-
-            for (var i = 0; i
 
 	</script>
 </head>
